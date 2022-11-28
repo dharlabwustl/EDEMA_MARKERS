@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /software/
-git clone https://github.com/dharlabwustl/dcm2niftiwithedemabiomarkers.git
+git clone https://github.com/dharlabwustl/EDEMA_MARKERS.git
 mv dcm2niftiwithedemabiomarkers/* /software/ 
 chmod +x /software/*.sh 
 
