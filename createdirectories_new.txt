@@ -1,0 +1,39 @@
+echo "RUN mkdir -p  /input_directory
+echo "RUN chmod -R 777 /input_directory
+echo "RUN mkdir -p /DATA/CSV/
+echo "RUN chmod -R 777 /DATA/CSV/
+echo "RUN mkdir -p /DATA/ZIP/
+echo "RUN chmod -R 777  /DATA/ZIP/
+echo "RUN mkdir -p /DATA/DICOMFOLDER/
+echo "RUN chmod -R 777  /DATA/DICOMFOLDER/
+echo "RUN mkdir -p /DATA/NIFTI/
+echo "RUN chmod -R 777 /DATA/NIFTI/
+echo "RUN mkdir -p /BET_OUTPUT/
+echo "RUN chmod -R 777 /BET_OUTPUT/
+echo "RUN mkdir -p /LINEAR_REGISTRATION_OUTPUT/
+echo "RUN chmod -R 777 /LINEAR_REGISTRATION_OUTPUT/
+echo "RUN mkdir -p /TEMPLATEMASKS_OUTPUT_LR/
+echo "RUN chmod -R 777 /TEMPLATEMASKS_OUTPUT_LR/
+echo "RUN mkdir -p /MIDLINE_PDF/
+echo "RUN chmod -R 777 /MIDLINE_PDF/
+echo "RUN mkdir -p /SMOOTH_IML_OUTPUT/
+echo "RUN chmod -R 777 /SMOOTH_IML_OUTPUT/
+echo "RUN mkdir -p /CSF_RL_VOL_OUTPUT/
+echo "RUN chmod -R 777 /CSF_RL_VOL_OUTPUT/
+echo "RUN mkdir -p /input_directory
+echo "RUN chmod -R 777 /input_directory
+echo "RUN mkdir -p /preprocessing_output/grayctimage
+echo "RUN chmod -R 777 /preprocessing_output/grayctimage
+echo "RUN mkdir -p /preprocessing_output/csfmask
+echo "RUN chmod -R 777 /preprocessing_output/csfmask
+echo "RUN mkdir -p /preprocessing_output/infarctmask
+echo "RUN chmod -R 777 /preprocessing_output/infarctmask
+echo "RUN mkdir -p /preprocessing_output/betmask
+echo "RUN chmod -R 777 /preprocessing_output/betmask
+echo "RUN mkdir -p /preprocessing_output/csvfile_directory
+echo "RUN chmod -R 777 /preprocessing_output/csvfile_directory
+echo "RUN mkdir -p /preprocessing_output/TIMING
+echo "RUN chmod -R 777  /preprocessing_output/TIMING
+echo "RUN mkdir -p /software
+echo "RUN mkdir -p /templatenifti
+echo "RUN mkdir -p /templatemasks

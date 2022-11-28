@@ -1,0 +1,39 @@
+echo "RUN mkdir -p  /input_directory " >> Dockerfile
+echo "RUN chmod -R 777 /input_directory " >> Dockerfile
+echo "RUN mkdir -p /DATA/CSV/ " >> Dockerfile
+echo "RUN chmod -R 777 /DATA/CSV/ " >> Dockerfile
+echo "RUN mkdir -p /DATA/ZIP/ " >> Dockerfile
+echo "RUN chmod -R 777  /DATA/ZIP/ " >> Dockerfile
+echo "RUN mkdir -p /DATA/DICOMFOLDER/ " >> Dockerfile
+echo "RUN chmod -R 777  /DATA/DICOMFOLDER/ " >> Dockerfile
+echo "RUN mkdir -p /DATA/NIFTI/ " >> Dockerfile
+echo "RUN chmod -R 777 /DATA/NIFTI/ " >> Dockerfile
+echo "RUN mkdir -p /BET_OUTPUT/ " >> Dockerfile
+echo "RUN chmod -R 777 /BET_OUTPUT/ " >> Dockerfile
+echo "RUN mkdir -p /LINEAR_REGISTRATION_OUTPUT/ " >> Dockerfile
+echo "RUN chmod -R 777 /LINEAR_REGISTRATION_OUTPUT/ " >> Dockerfile
+echo "RUN mkdir -p /TEMPLATEMASKS_OUTPUT_LR/ " >> Dockerfile
+echo "RUN chmod -R 777 /TEMPLATEMASKS_OUTPUT_LR/ " >> Dockerfile
+echo "RUN mkdir -p /MIDLINE_PDF/ " >> Dockerfile
+echo "RUN chmod -R 777 /MIDLINE_PDF/ " >> Dockerfile
+echo "RUN mkdir -p /SMOOTH_IML_OUTPUT/ " >> Dockerfile
+echo "RUN chmod -R 777 /SMOOTH_IML_OUTPUT/ " >> Dockerfile
+echo "RUN mkdir -p /CSF_RL_VOL_OUTPUT/ " >> Dockerfile
+echo "RUN chmod -R 777 /CSF_RL_VOL_OUTPUT/ " >> Dockerfile
+echo "RUN mkdir -p /input_directory " >> Dockerfile
+echo "RUN chmod -R 777 /input_directory " >> Dockerfile
+echo "RUN mkdir -p /preprocessing_output/grayctimage " >> Dockerfile
+echo "RUN chmod -R 777 /preprocessing_output/grayctimage " >> Dockerfile
+echo "RUN mkdir -p /preprocessing_output/csfmask " >> Dockerfile
+echo "RUN chmod -R 777 /preprocessing_output/csfmask " >> Dockerfile
+echo "RUN mkdir -p /preprocessing_output/infarctmask " >> Dockerfile
+echo "RUN chmod -R 777 /preprocessing_output/infarctmask " >> Dockerfile
+echo "RUN mkdir -p /preprocessing_output/betmask " >> Dockerfile
+echo "RUN chmod -R 777 /preprocessing_output/betmask " >> Dockerfile
+echo "RUN mkdir -p /preprocessing_output/csvfile_directory " >> Dockerfile
+echo "RUN chmod -R 777 /preprocessing_output/csvfile_directory " >> Dockerfile
+echo "RUN mkdir -p /preprocessing_output/TIMING " >> Dockerfile
+echo "RUN chmod -R 777  /preprocessing_output/TIMING " >> Dockerfile
+echo "RUN mkdir -p /software " >> Dockerfile
+echo "RUN mkdir -p /templatenifti " >> Dockerfile
+echo "RUN mkdir -p /templatemasks " >> Dockerfile

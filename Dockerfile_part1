@@ -1,0 +1,28 @@
+FROM sharmaatul11/fsl502py369ltx:latest
+RUN apt update
+COPY scct_strippedResampled1.nii.gz   /templatenifti/
+COPY  midlinecssfResampled1.nii.gz   /templatemasks/
+RUN mkdir -p /callfromgithub
+RUN chmod 755 /callfromgithub
+COPY downloadcodefromgithub.sh /callfromgithub/
+RUN chmod +x /callfromgithub/downloadcodefromgithub.sh
+RUN apt install -y \
+  dcm2niix  \ 
+  vim  \ 
+  zip  \ 
+  unzip  \ 
+  curl  \ 
+  git \
+  tree  
+RUN pip install \
+  nibabel  \ 
+  numpy  \ 
+  xmltodict  \ 
+  pandas  \ 
+  requests  \ 
+  pydicom  \ 
+  python-gdcm  \ 
+  glob2  \ 
+  scipy  \ 
+  pypng  \
+  PyGithub 
