@@ -21,7 +21,7 @@ import cv2 , re,subprocess,time,math
 sys.path.append("/software")
 #sys.path.append("/media/atul/AC0095E80095BA32/WASHU_WORK/PROJECTS/DOCKERIZE/DOCKERIZEPYTHON/docker_fsl/docker/fsl/fsl-v5.0")
 from utilities_simple import *
-
+now=time.localtime()
 def determine_infarct_side(numpy_image,filename_gray_data_np_copy,niftifilename,npyfiledirectory,csf_seg_np,numpy_image_mask):
     infarct_side='NONE'
     left_ids=[]
@@ -499,7 +499,7 @@ def measure_NWU_after_subt_csf_Oct_5_2020(): #niftifilename,npyfiledirectory,nif
 
     this_dict={"Slice":subject_name.split('_resaved')[0] + "_TOTAL","NWU":NWU,"NumberofInfarctvoxels": np.array(infarct_pixels_list).shape[0],"INFARCT Density":np.mean(np.array(infarct_pixels_list)) , "NumberofNONInfarctvoxels": np.array(nonfarct_pixels_list).shape[0] , "NONINFARCT Density":np.mean(np.array(nonfarct_pixels_list)), "INFARCT Volume":overall_infarct_vol ,"NONINFARCT Volume":overall_non_infarct_vol,"ORGINAL_INFARCT_VOLUME":infarct_total_voxels_volume ,"INFARCTUSED_VOL_RATIO":overall_infarct_vol/infarct_total_voxels_volume,"NONINFACRTUSED_VOL_RATIO":overall_non_infarct_vol/infarct_total_voxels_volume} 
     dict_for_csv.append(this_dict)
-    now=time.localtime()
+
     date_time = time.strftime("_%m_%d_%Y",now)
     grayfilename=niftifilename #os.path.join(niftifilenamedir,grayfilename)
     thisfilebasename=os.path.basename(grayfilename).split("_resaved")[0]
@@ -567,7 +567,7 @@ def measure_compartments_with_reg_round5_one_file_sh_v1() : #niftifilenamedir,np
         niftifilename_basename_split_nii=os.path.basename(niftifilename).split(".nii")[0] #.split("_")
         # bet_filename=niftifilename_basename_split_nii+BET_file_extension
         bet_filename_path=sys.argv[2] #os.path.join(BET_OUTPUT_DIRECTORY,bet_filename)
-        now=time.localtime()
+        # now=time.localtime()
         date_time = time.strftime("_%m_%d_%Y",now)
         grayfilename=niftifilename #os.path.join(niftifilenamedir,grayfilename)
         thisfilebasename=os.path.basename(grayfilename).split("_resaved")[0]
