@@ -1,7 +1,7 @@
 #!/bin/bash
 cd /software/
 git clone https://github.com/dharlabwustl/EDEMA_MARKERS.git
-mv dcm2niftiwithedemabiomarkers/* /software/ 
+mv EDEMA_MARKERS/* /software/
 chmod +x /software/*.sh 
 
 SESSION_ID=${1}
