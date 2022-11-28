@@ -11,4 +11,4 @@ mkdir output
 mkdir NIFTIFILEDIR
 mkdir DICOMFILEDIR
 sessionID=SNIPR_E03614 #SNIPR_E03516
-docker run -v $PWD/NIFTIFILEDIR:/NIFTIFILEDIR  -v $PWD/DICOMFILEDIR:/DICOMFILEDIR  -v $PWD/working:/working -v $PWD/input:/input -v $PWD/ZIPFILEDIR:/ZIPFILEDIR -v $PWD/output:/output  -it sharmaatul11/dicom2nifti_nwu_1   /software/dicom2nifti_call_sessionlevel_selected.sh ${sessionID} $XNAT_USER $XNAT_PASS $XNAT_HOST #https://snipr-dev-test1.nrg.wustl.edu
+#docker run -v $PWD/NIFTIFILEDIR:/NIFTIFILEDIR  -v $PWD/DICOMFILEDIR:/DICOMFILEDIR  -v $PWD/working:/working -v $PWD/input:/input -v $PWD/ZIPFILEDIR:/ZIPFILEDIR -v $PWD/output:/output  -it sharmaatul11/dicom2nifti_nwu_1   /software/dicom2nifti_call_sessionlevel_selected.sh ${sessionID} $XNAT_USER $XNAT_PASS $XNAT_HOST #https://snipr-dev-test1.nrg.wustl.edu

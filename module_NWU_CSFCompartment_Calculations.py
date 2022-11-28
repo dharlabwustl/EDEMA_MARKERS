@@ -21,7 +21,23 @@ import cv2 , re,subprocess,time,math
 sys.path.append("/software")
 #sys.path.append("/media/atul/AC0095E80095BA32/WASHU_WORK/PROJECTS/DOCKERIZE/DOCKERIZEPYTHON/docker_fsl/docker/fsl/fsl-v5.0")
 from utilities_simple import *
+from github import Github
+#############################################################
+from dateutil.parser import parse
+g = Github()
+repo = g.get_repo("dharlabwustl/EDEMA_MARKERS")
+contents = repo.get_contents("module_NWU_CSFCompartment_Calculations.py")
+dt = parse(contents.last_modified)
+
+Version_Date="_VersionDate-" + dt.strftime("%m_%d_%Y_")
+
+#############################################################
+
+
 now=time.localtime()
+
+
+
 def determine_infarct_side(numpy_image,filename_gray_data_np_copy,niftifilename,npyfiledirectory,csf_seg_np,numpy_image_mask):
     infarct_side='NONE'
     left_ids=[]
@@ -504,7 +520,7 @@ def measure_NWU_after_subt_csf_Oct_5_2020(): #niftifilename,npyfiledirectory,nif
     grayfilename=niftifilename #os.path.join(niftifilenamedir,grayfilename)
     thisfilebasename=os.path.basename(grayfilename).split("_resaved")[0]
     # csvfile_with_vol=os.path.join(SLICE_OUTPUT_DIRECTORY,''.join(e for e in os.path.basename(sys.argv[1]).split(".nii")[0] if e.isalnum())+"_threshold"+ str(lower_thresh) + "_" + str(upper_thresh) +'_NWU.csv')
-    csvfile_with_vol=os.path.join(SLICE_OUTPUT_DIRECTORY,thisfilebasename +"_threshold"+ str(lower_thresh) + "_" + str(upper_thresh) +'_NWU'+date_time +'.csv')
+    csvfile_with_vol=os.path.join(SLICE_OUTPUT_DIRECTORY,thisfilebasename +"_threshold"+ str(lower_thresh) + "_" + str(upper_thresh) +'_NWU'+Version_Date+date_time +'.csv')
     csv_columns=['Slice','NWU','NumberofInfarctvoxels','INFARCT Density','NumberofNONInfarctvoxels','NONINFARCT Density','INFARCT Volume','NONINFARCT Volume','ORGINAL_INFARCT_VOLUME','INFARCTUSED_VOL_RATIO','NONINFACRTUSED_VOL_RATIO'] #,'Ventricles_Vol','Sulci_VolL','Sulci_VolR','Ventricles_VolL','Ventricles_VolR','sulci_vol_above_vent','sulci_vol_below_vent','sulci_vol_at_vent']
     write_csv(csvfile_with_vol,csv_columns,dict_for_csv)
 
@@ -572,11 +588,11 @@ def measure_compartments_with_reg_round5_one_file_sh_v1() : #niftifilenamedir,np
         grayfilename=niftifilename #os.path.join(niftifilenamedir,grayfilename)
         thisfilebasename=os.path.basename(grayfilename).split("_resaved")[0]
         # csvfile_with_vol_total=os.path.join(SLICE_OUTPUT_DIRECTORY,os.path.basename(grayfilename).split(".nii")[0] + "_threshold"+ str(lower_thresh) + "_" + str(upper_thresh) + "TOTAL.csv")
-        csvfile_with_vol_total=os.path.join(SLICE_OUTPUT_DIRECTORY,thisfilebasename + "_threshold"+ str(lower_thresh) + "_" + str(upper_thresh) + "TOTAL" +date_time + ".csv")
+        csvfile_with_vol_total=os.path.join(SLICE_OUTPUT_DIRECTORY,thisfilebasename + "_threshold"+ str(lower_thresh) + "_" + str(upper_thresh) + "TOTAL" +Version_Date+date_time + ".csv")
  
 
 
-        latexfilename=os.path.join(SLICE_OUTPUT_DIRECTORY,thisfilebasename+"_thresh_"+str(lower_thresh) + "_" +str(upper_thresh) +date_time+".tex")
+        latexfilename=os.path.join(SLICE_OUTPUT_DIRECTORY,thisfilebasename+"_thresh_"+str(lower_thresh) + "_" +str(upper_thresh) + Version_Date + date_time+".tex")
         # latexfilename=os.path.join(SLICE_OUTPUT_DIRECTORY,os.path.basename(grayfilename).split(".nii")[0]+"_thresh_"+str(lower_thresh) + "_" +str(upper_thresh) +".tex")
 
 
