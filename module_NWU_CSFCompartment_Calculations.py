@@ -844,8 +844,8 @@ def measure_compartments_with_reg_round5_one_file_sh_v1() : #niftifilenamedir,np
             row2 = [thisfilebasename , str(left_pixels_num), str(right_pixels_num),str(left_pixels_num+right_pixels_num), infarct_side,NWU, infarct_pixels_number, infarct_pixels_density, nonfarct_pixels_number,noninfarct_pixels_density,overall_infarct_vol,overall_non_infarct_vol,str(BET_VOLUME),str(CSF_RATIO),str(left_brain_volume),str(right_brain_volume),str(lower_thresh)+"to"+ str(upper_thresh),str(lower_thresh_normal) +"to" +str(upper_thresh_normal)]
             
             values_in_col=np.array(row2)
-            values_in_col.pop(6)
-            values_in_col.pop(7)
+            # values_in_col.pop(6)
+            # values_in_col.pop(7)
 
 
             with open(csvfile_with_vol_total, 'a') as f1:
@@ -854,7 +854,7 @@ def measure_compartments_with_reg_round5_one_file_sh_v1() : #niftifilenamedir,np
             csvfile_with_vol_total_df=pd.read_csv(csvfile_with_vol_total)
             csvfile_with_vol_total_df=csvfile_with_vol_total_df.drop("INFARCT VOX_NUMBERS", inplace=True, axis=1)
             csvfile_with_vol_total_df=csvfile_with_vol_total_df.drop("NON INFARCT VOX_NUMBERS", inplace=True, axis=1)
-            csvfile_with_vol_total_df.to_csv(csvfile_with_vol_total,index=False)
+            csvfile_with_vol_total_df.to_csv(csvfile_with_vol_total.split('.csv')[0]+'fewercol.csv',index=False)
             this_nii_filename_list=[]
             # this_nii_filename_list.append(os.path.basename(niftifilename).split(".nii")[0]) #thisfilebasename
             this_nii_filename_list.append(thisfilebasename)
