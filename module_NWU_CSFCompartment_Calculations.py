@@ -24,6 +24,7 @@ from utilities_simple import *
 from github import Github
 #############################################################
 from dateutil.parser import parse
+import pandas as pd
 g = Github()
 repo = g.get_repo("dharlabwustl/EDEMA_MARKERS")
 contents = repo.get_contents("module_NWU_CSFCompartment_Calculations.py")
@@ -522,7 +523,7 @@ def measure_NWU_after_subt_csf_Oct_5_2020(): #niftifilename,npyfiledirectory,nif
     # csvfile_with_vol=os.path.join(SLICE_OUTPUT_DIRECTORY,''.join(e for e in os.path.basename(sys.argv[1]).split(".nii")[0] if e.isalnum())+"_threshold"+ str(lower_thresh) + "_" + str(upper_thresh) +'_NWU.csv')
     csvfile_with_vol=os.path.join(SLICE_OUTPUT_DIRECTORY,thisfilebasename +"_threshold"+ str(lower_thresh) + "_" + str(upper_thresh) +'_NWU'+Version_Date+date_time +'.csv')
     csv_columns=['Slice','NWU','NumberofInfarctvoxels','INFARCT Density','NumberofNONInfarctvoxels','NONINFARCT Density','INFARCT Volume','NONINFARCT Volume','ORGINAL_INFARCT_VOLUME','INFARCTUSED_VOL_RATIO','NONINFACRTUSED_VOL_RATIO'] #,'Ventricles_Vol','Sulci_VolL','Sulci_VolR','Ventricles_VolL','Ventricles_VolR','sulci_vol_above_vent','sulci_vol_below_vent','sulci_vol_at_vent']
-    write_csv(csvfile_with_vol,csv_columns,dict_for_csv)
+    # write_csv(csvfile_with_vol,csv_columns,dict_for_csv)
 
     infarct_pixels_number=np.array(infarct_pixels_list).shape[0]
     infarct_pixels_density=np.mean(np.array(infarct_pixels_list))
@@ -843,11 +844,17 @@ def measure_compartments_with_reg_round5_one_file_sh_v1() : #niftifilenamedir,np
             row2 = [thisfilebasename , str(left_pixels_num), str(right_pixels_num),str(left_pixels_num+right_pixels_num), infarct_side,NWU, infarct_pixels_number, infarct_pixels_density, nonfarct_pixels_number,noninfarct_pixels_density,overall_infarct_vol,overall_non_infarct_vol,str(BET_VOLUME),str(CSF_RATIO),str(left_brain_volume),str(right_brain_volume),str(lower_thresh)+"to"+ str(upper_thresh),str(lower_thresh_normal) +"to" +str(upper_thresh_normal)]
             
             values_in_col=np.array(row2)
+            values_in_col.pop(6)
+            values_in_col.pop(7)
 
 
             with open(csvfile_with_vol_total, 'a') as f1:
                 writer = csv.writer(f1)
-                writer.writerow(row2) 
+                writer.writerow(row2)
+            csvfile_with_vol_total_df=pd.read_csv(csvfile_with_vol_total)
+            csvfile_with_vol_total_df=csvfile_with_vol_total_df.drop("INFARCT VOX_NUMBERS", inplace=True, axis=1)
+            csvfile_with_vol_total_df=csvfile_with_vol_total_df.drop("NON INFARCT VOX_NUMBERS", inplace=True, axis=1)
+            csvfile_with_vol_total_df.to_csv(csvfile_with_vol_total,index=False)
             this_nii_filename_list=[]
             # this_nii_filename_list.append(os.path.basename(niftifilename).split(".nii")[0]) #thisfilebasename
             this_nii_filename_list.append(thisfilebasename)

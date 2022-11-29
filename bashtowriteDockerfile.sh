@@ -28,7 +28,7 @@ fi
 done
 
 
-pipinstall=(nibabel numpy xmltodict pandas requests pydicom python-gdcm glob2 scipy pypng)
+pipinstall=(nibabel numpy xmltodict pandas requests pydicom python-gdcm glob2 scipy pypng PyGithub)
 len_array=${#pipinstall[@]}
 last_num=$((pipinstall -1))
 echo "RUN pip install \\" >> Dockerfile 
