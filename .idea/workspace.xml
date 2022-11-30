@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b7703539-bebb-46f9-9292-022aedf7fa67" name="Changes" comment="2nd commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bashtowriteDockerfile.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bashtowriteDockerfile.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_NWU_CSFCompartment_Calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/module_NWU_CSFCompartment_Calculations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
