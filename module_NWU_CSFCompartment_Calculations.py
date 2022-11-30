@@ -24,6 +24,7 @@ from utilities_simple import *
 from github import Github
 #############################################################
 from dateutil.parser import parse
+import pandas as pd
 g = Github()
 repo = g.get_repo("dharlabwustl/EDEMA_MARKERS")
 contents = repo.get_contents("module_NWU_CSFCompartment_Calculations.py")
@@ -35,6 +36,15 @@ Version_Date="_VersionDate-" + dt.strftime("%m%d%Y")
 
 
 now=time.localtime()
+
+
+def remove_few_columns(csvfilename,columnstoremove):
+    csvfilename_df=pd.read_csv(csvfilename)
+    csvfilename_df.drop(columnstoremove, axis=1, inplace=True)
+    csvfilename_df.to_csv(csvfilename.split('.csv')[0]+'columndropped.csv',index=False)
+
+
+
 
 
 
@@ -884,4 +894,5 @@ def measure_compartments_with_reg_round5_one_file_sh_v1() : #niftifilenamedir,np
             latex_insert_line_nodek(latexfilename,text=values_in_table_df.to_latex(index=False))
             latex_end_table2c(latexfilename)
         latex_end(latexfilename)
+        remove_few_columns(csvfile_with_vol_total,["INFARCT VOX_NUMBERS", "INFARCT DENSITY", "NON INFARCT VOX_NUMBERS"])
 
